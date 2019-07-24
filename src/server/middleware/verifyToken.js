@@ -10,7 +10,8 @@ const { createError, UNAUTHORIZED, GENERIC_ERROR } = require('../util/error.js')
    * @param {*} next
    */
 const verifyToken = async (req, res, next) => {
-  const token = req.headers.Authorization;
+  const token = req.headers.authorization;
+
   const secretKey = process.env.SECRET_KEY;
 
   // check if token is provided
@@ -53,6 +54,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  verifyToken,
-};
+module.exports = verifyToken;

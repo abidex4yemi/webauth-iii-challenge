@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
 
 /**
-   * Generate token based on payload.
+   * Generate token using payload.
    *
-   * @param {*} id
-   * @param {*} isAdmin
+   * @param {*} payload
+   * @param {*} options
    */
-const generateToken = ({ payload = {}, options = {} }) => {
+const generateToken = (payload = {}, options = {}) => {
   const secretKey = process.env.SECRET_KEY;
 
   const token = jwt.sign(payload, secretKey, options);

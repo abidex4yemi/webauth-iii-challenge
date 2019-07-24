@@ -11,6 +11,7 @@ const allErrorHandler = require('./middleware/errorHandler');
 const { createSuccess, OK } = require('./util/success');
 const { NOT_FOUND } = require('./util/error');
 const userRouter = require('./routes/userRouter');
+const departmentRouter = require('./routes/departmentRouter');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(helmet());
 app.get('/', (req, res) => res.status(OK).json(createSuccess({ message: 'Welcome to API root...', data: [] })));
 
 app.use('/api/v1/auth', userRouter);
+app.use('/api/v1', departmentRouter);
 
 // Handle invalid request
 app.all('*', (req, res) => res.status(NOT_FOUND).json({
