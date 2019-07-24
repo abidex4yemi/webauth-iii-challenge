@@ -31,6 +31,9 @@ const userSchema = Joi.object().keys({
     .label('Email')
     .trim()
     .required(),
+  department_name: Joi.string()
+    .trim()
+    .required(),
 });
 
 /**

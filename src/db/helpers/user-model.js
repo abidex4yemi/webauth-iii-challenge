@@ -17,6 +17,7 @@ const create = (knex) => {
         first_name: user[0].first_name,
         id: user[0].id,
         last_name: user[0].last_name,
+        department_name: user[0].department_name,
       }));
   }
 

@@ -3,13 +3,13 @@
 exports.seed = function (knex, Promise) {
   return knex('departments').insert([
     {
-      name: 'finance',
+      department_name: 'finance',
     },
     {
-      name: 'budgeting',
+      department_name: 'budgeting',
     },
     {
-      name: 'inventory',
+      department_name: 'inventory',
     },
   ]);
 };

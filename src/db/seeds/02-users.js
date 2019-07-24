@@ -7,7 +7,7 @@ exports.seed = function (knex, Promise) {
       last_name: 'Doe',
       email: 'john@gmail.com',
       password: '$2b$12$3DLHQshuQu4E5ne9H5H5ReqygL4iMNpG/kP3Bg8kGWdgJ7d/W7Qpa',
-      department: 'finance',
+      department_name: 'finance',
     },
   ]);
 };
