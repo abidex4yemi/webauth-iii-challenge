@@ -11,6 +11,7 @@ exports.up = function (knex, Promise) {
       .notNullable()
       .unique();
     users.string('password').notNullable();
+    users.string('department').notNullable();
   });
 };
 

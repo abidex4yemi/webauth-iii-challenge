@@ -3,7 +3,7 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('departments', (table) => {
     table.increments();
-    table.string('name');
+    table.string('name').notNullable();
   });
 };
 
