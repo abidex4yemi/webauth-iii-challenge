@@ -1,4 +1,4 @@
-const create = require('../../db/helpers/product-model');
+const create = require('../../db/helpers/department-model');
 
 module.exports = (knex) => {
   const models = create(knex);

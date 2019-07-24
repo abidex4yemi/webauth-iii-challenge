@@ -39,7 +39,6 @@ const createUser = async (req, res, next) => {
       }),
     );
   } catch (error) {
-    console.log(error);
     if (error && error.code === 'SQLITE_CONSTRAINT') {
       return next(
         createError({

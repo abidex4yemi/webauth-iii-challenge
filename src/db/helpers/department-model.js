@@ -1,42 +1,42 @@
 /**
- * products query builder
+ * departments query builder
  *
  * @param {Object} knex
  * @returns {Object} {get, insert, update, remove}
  */
 const create = (knex) => {
   function getAll() {
-    return knex('products');
+    return knex('departments');
   }
 
   function getById(id) {
-    return knex('products')
+    return knex('departments')
       .where({ id })
       .first();
   }
 
-  function insert(product) {
-    return knex('products')
-      .insert(product)
+  function insert(department) {
+    return knex('departments')
+      .insert(department)
       .then(([id]) => getById(id));
   }
 
   function update(id, changes) {
-    return knex('products')
+    return knex('departments')
       .where({ id })
       .update(changes)
       .then(count => (count > 0 ? getById(id) : null));
   }
 
   function remove(id) {
-    return knex('products')
+    return knex('departments')
       .where({ id })
       .del();
   }
 
-  // User is the model name
+  // Department is the model name
   return {
-    name: 'Product',
+    name: 'Department',
     getById,
     insert,
     update,
