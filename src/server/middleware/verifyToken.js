@@ -3,20 +3,6 @@ const { User } = require('../model');
 const { createError, UNAUTHORIZED, GENERIC_ERROR } = require('../util/error.js');
 
 /**
-   * Generate token based on payload.
-   *
-   * @param {*} id
-   * @param {*} isAdmin
-   */
-const generateToken = ({ payload = {}, options = {} }) => {
-  const secretKey = process.env.SECRET_KEY;
-
-  const token = jwt.sign(payload, secretKey, options);
-
-  return token;
-};
-
-/**
    * Verifies user provided token
    *
    * @param {*} req
@@ -68,6 +54,5 @@ const verifyToken = async (req, res, next) => {
 };
 
 module.exports = {
-  generateToken,
   verifyToken,
 };
