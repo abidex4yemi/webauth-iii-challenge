@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const { User } = require('../../model');
+const { generateToken } = require('../../util/generateToken');
 const { createSuccess, CREATED } = require('../../util/success');
 const { createError, GENERIC_ERROR, CONFLICT } = require('../../util/error');
 
@@ -18,10 +19,23 @@ const createUser = async (req, res, next) => {
 
     const user = await User.createUser(userDetails);
 
+    const payload = {
+      id: user.id,
+    };
+
+    const options = {
+      expiresIn: '1h',
+    };
+
+    const token = generateToken(payload, options);
+
     return res.status(CREATED).json(
       createSuccess({
         message: 'New user created',
-        data: user,
+        data: {
+          user,
+          token,
+        },
       }),
     );
   } catch (error) {
